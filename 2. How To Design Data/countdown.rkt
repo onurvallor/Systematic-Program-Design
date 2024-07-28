@@ -34,15 +34,15 @@
 
 ;; CountDown -> Image
 ;; produce an image of current state of countdown.
-(check-expect (countdown-to-image false)  (square 0 "solid" "white"))
-(check-expect (countdown-to-image 3) (text (number->string 3) 24 "black"))
-(check-expect (countdown-to-image "complete") (text "HAPPY NEW YEAR!" 24 "red"))
+(check-expect (countdown->image false)  (square 0 "solid" "white"))
+(check-expect (countdown->image 3) (text (number->string 3) 24 "black"))
+(check-expect (countdown->image "complete") (text "HAPPY NEW YEAR!" 24 "red"))
 
-;(define (countdown-to-image c) (square 0 "solid" "white")) ;stub
+;(define (countdown->image c) (square 0 "solid" "white")) ;stub
 
 ;<used template from Countdown>
 
-(define (countdown-to-image c)
+(define (countdown->image c)
   (cond [(false? c)(square 0 "solid" "white")]
         [(and (number? c) (<= c 10) (>= c 1)) (text (number->string c) 24 "black")]
         [(string=? "complete" c) (text "HAPPY NEW YEAR!" 24 "red")]
